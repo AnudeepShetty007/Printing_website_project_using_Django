@@ -9,6 +9,7 @@ Here database setup is done for MySql.
 We can configure mail, database in settings.py
 
 Steps:
+
 Pip install django
 
 python manage.py createsuperuser (to create admin user)
