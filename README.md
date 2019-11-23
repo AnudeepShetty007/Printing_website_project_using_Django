@@ -10,10 +10,14 @@ We can configure mail, database in settings.py
 
 Steps:
 Pip install django
+
 python manage.py createsuperuser (to create admin user)
+
 python manage.py makemigrations(database migrations)
+
 python manage.py migrate(migrate/sync)
 
 To run the code in local:
+
 Python manage.py runserver.
 
