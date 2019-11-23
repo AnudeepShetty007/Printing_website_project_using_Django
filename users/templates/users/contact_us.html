@@ -1,0 +1,147 @@
+
+{% extends "users/base.html" %}
+{% block content %}
+{% load static %}
+<html lang="en">
+<head>
+	<title>Contact V17</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" type="text/css" href= "{%  static  'users/util.css' %}">
+  <link rel="stylesheet" type="text/css" href= "{%  static  'users/contactform.css' %}">
+  
+  
+<!--===============================================================================================-->
+</head>
+<body>
+
+
+	<div class="container-contact100">
+		<div class="wrap-contact100">
+			<form method='POST'>
+      {% csrf_token %}
+				<span class="contact100-form-title">
+        <br />
+					Send Us A Message
+				</span>
+
+				<label for="first-name">&nbsp&nbsp&nbsp&nbsp Tell us your name *</label>
+				<div class="input-group input-group-lg" data-validate="Type first name">
+					<input id="first-name" class="input100" type="text" name="name" placeholder="First name" required>
+					
+					<span class="focus-input100"></span>
+				</div>
+				<br />
+				
+
+				<label  for="email">&nbsp&nbsp&nbsp&nbspEnter your Phone *</label>
+				<div class="input-group input-group-lg" data-validate = "Valid email is required: ex@abc.xyz">
+					<input id="phone" class="input100" type="text" name="mobile" placeholder="Eg. +1 800 000000" required> 
+					<span class="focus-input100"></span>
+				</div>
+				<br />
+
+				<label  for="phone">&nbsp&nbsp&nbsp&nbspEnter Email</label>
+				<div class="input-group input-group-lg">
+					<input id="email" class="input100" type="text" name="Email" placeholder="Eg. example@email.com" required>
+					<span class="focus-input100"></span>
+				</div>
+				<br />
+
+        <label for="issue">&nbsp&nbsp&nbsp&nbspIssue *</label>
+				<div class="input-group input-group-lg" data-validate = "Valid email is required: ex@abc.xyz">
+					<select id="issue" name="Issue" required>
+
+    
+      <option value="Product/ site info">Product/ site info</option>
+      <option value="Sales Enquiry">Sales Enquiry</option>
+	  <option value="Order related/Dispatch Related">Order related/Dispatch Related</option>
+      <option value="Transaction/Order/Payment related">Transaction/Order/Payment related</option>
+	  <option value="Testimonial/General Feedback">Testimonial/General Feedback</option>
+	  <option value="Marketeting/Promotion Tie Up">Marketeting/Promotion Tie Up</option>
+	  <option value="Bussiness /Supplier Tie up">Bussiness /Supplier Tie up</option>
+	  <option value="Job Related query">Job Related query</option> 
+
+    </select>
+
+
+	
+					<span class="focus-input100"></span>
+				</div>
+				<br />
+
+				<label  for="message">&nbsp&nbsp&nbsp&nbspQuery *</label>
+				<div class="input-group input-group-lg" data-validate = "Message is required">
+					<textarea id="message" class="input100" name="Query" placeholder="Write us a Query" required></textarea>
+					<span class="focus-input100"></span>
+				</div>
+				<div class="container-contact100-form-btn">
+					<button class="contact100-form-btn">
+						Send Message
+						
+					</button>
+					
+				</div>
+				<br />
+			</form>
+
+			<div class="contact100-more flex-col-c-m" >
+				<div class="flex-w size1 p-b-98">
+					<div class="txt1 p-r-25">
+						<span class="lnr lnr-map-marker"></span>
+					</div>
+
+					<div class="flex-col size2">
+						<span class="txt1 p-b-20">
+							Address
+						</span>
+
+						<span class="txt2">
+							Mada Center 8th floor, 379 Hudson St, New York, NY 10018 US
+						</span>
+					</div>
+				</div>
+
+				<div class="dis-flex size1 p-b-47">
+					<div class="txt1 p-r-25">
+						<span class="lnr lnr-phone-handset"></span>
+					</div>
+
+					<div class="flex-col size2">
+						<span class="txt1 p-b-20">
+							Lets Talk
+						</span>
+
+						<span class="txt3">
+							+1 800 1236879
+						</span>
+					</div>
+				</div>
+
+				<div class="dis-flex size1 p-b-47">
+					<div class="txt1 p-r-25">
+						<span class="lnr lnr-envelope"></span>
+					</div>
+
+					<div class="flex-col size2">
+						<span class="txt1 p-b-20">
+							General Support
+						</span>
+
+						<span class="txt3">
+							contact@example.com
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	
+
+</body>
+</html>
+{% endblock content %}

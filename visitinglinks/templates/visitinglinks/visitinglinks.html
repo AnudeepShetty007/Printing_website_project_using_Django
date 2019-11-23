@@ -1,0 +1,16 @@
+{% extends "users/base.html" %}
+{% block content %}
+<body>
+<p><h5> We have the following set of cards, please choose one among this and fill the form</h5></p>
+<br/>
+{% comment %} <button type="button" class="btn btn-outline-primary">One Sided</button> {% endcomment %}
+<a class="btn btn-outline-primary" role="button" href="{% url 'one-sided' %}">One Sided</a>
+
+<button type="button" class="btn btn-outline-primary">Two Sided</button>
+<button type="button" class="btn btn-outline-primary">Three Sided</button>
+<button type="button" class="btn btn-outline-primary">Four Sided</button>
+<button type="button" class="btn btn-outline-primary">Five Sided</button>
+<button type="button" class="btn btn-outline-primary">Six Sided</button>
+
+</body>
+{% endblock content %}

@@ -1,0 +1,181 @@
+
+{% load static %}
+
+<html>
+<head>
+    
+     <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    {% comment %} <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> {% endcomment %}
+    <link rel="stylesheet" type="text/css" href= "{%  static  'users/main.css' %}">
+    <link rel="stylesheet" type="text/css" href= "{%  static  'users/boot.css' %}">
+    {% comment %} <link rel="stylesheet" type="text/css" href= "{%  static  'users/new.css' %}"> {% endcomment %}
+
+    {% if title %}
+
+        <title>{{ title }}</title>
+    {% else %}
+        <title>Print Cosmos</title>
+    {% endif %}
+
+</head>
+<body class="tdstyle">
+<div id="page-container">
+   <div id="content-wrap">
+    
+    <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+
+    
+        <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'about' %}"><img class ='logo' src="{% static 'users/images/newcosmos.png' %}" /></a>
+        
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" >
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                 {% comment %} <li class="nav-item">
+                    <a class="nav-link" style="color:#ce2027;font-size: 20px"; href="{% url 'CosmosHome' %}">Home</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link"  style="color:#ce2027;font-size: 20px"; href="{% url 'about' %}">About</a>
+                </li> {% endcomment %}
+                
+            </ul>
+        </div>
+            
+                  
+                   
+                        
+                    
+                    
+                   
+                    
+            {% comment %} <a class="badge badge-pill badge-primary  " style='color:currentColor;' href="{% url 'CosmosHome' %}">Home</a> {% endcomment %}
+            {% comment %} <a class="nav-item nav-link " style='color:currentColor;' href="{% url 'about' %}">About</a> {% endcomment %}
+    
+            <!-- Navbar Right Side -->
+        <div class="navbar-nav ">
+            {% if user.is_authenticated %}
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                {% comment %} <li class="nav-item">
+                    <a class="nav-item nav-link " style="color:#ce2027;font-size: 20px"; href="{% url 'Products' %}">Products</a>
+                </li> {% endcomment %}
+                 <li class="nav-item">
+                    <a class="nav-item nav-link " style="color:#ce2027;font-size: 20px"; href="{% url 'userupload' %}">Upload Design</a>
+                </li>
+                 <li class="nav-item">
+                    <a class="nav-item nav-link "   style="color:#ce2027;font-size: 20px"; href="{% url 'orders' %}">My Orders</a>
+                </li>
+                <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#"  style="color:#ce2027;font-size: 20px"; id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Hi {{ user.username }}
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          
+          
+          <a class="dropdown-item"  style="color:#ce2027;font-size: 20px"; href="{% url 'logout' %}">Logout</a>
+          
+      </li>
+      
+                {% comment %} <li class="nav-item ">
+                   <a class="nav-link"  href=" ">Hi {{ user.username }} </a>
+                </li>
+                 <li class="nav-item ">
+                   <a class="btn btn-outline-primary"  role="button" href="{% url 'logout' %}">Logout</a>
+                </li>
+                </ul> {% endcomment %}
+                </div>
+                </div>
+                
+                {% comment %} <a class="nav-item nav-link " style='color:#f8ae00;' href="{% url 'visitingviews' %}">Cards</a> {% endcomment %}
+                
+                {% comment %} <a class="nav-item nav-link" style='color:#fff;' href="{% url 'profile' %}">Profile</a> {% endcomment %}
+                
+            {% else %}
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" style="color:yellow;font-size: 20px"; href="{% url 'CosmosHome' %}">Home</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link"  style="color:yellow;font-size: 20px"; href="{% url 'about' %}">About</a>
+                </li>
+                
+                 <li class="nav-item">
+                    <a class="nav-link" style="color:yellow;font-size: 20px"; href="{% url 'login' %}">Login</a>
+                </li>
+                {% comment %} <li class="nav-item ">
+                    <a class="nav-link"  style="color:#ce2027;font-size: 20px";  href="{% url 'register' %}">Register</a>
+                </li> {% endcomment %}
+                <li class="nav-item ">
+                    <a class="nav-link" style="color:yellow;font-size: 20px"; href="{% url 'contact-us' %}">Contact Us</a>
+                </li>
+                
+                </ul>
+                </div>
+                {% comment %} <a class="nav-link"  href="http://127.0.0.1:8000/admin/login/?next=/admin/">Admin</a> {% endcomment %}
+            {% endif %}
+            
+            
+        </div>
+        </div>
+        
+        
+    </nav>
+
+   
+
+
+
+
+
+    
+    
+    <main role="main" class="container">
+    {% comment %} <div class="image" > {% endcomment %}
+    <div class="row">
+        <div class="col-md-8">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}" >
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+        {% block content %}{% endblock %}
+        </div>
+        <div class="col-md-4">
+        <div class="content-section">
+            
+           
+        </div>
+
+        </div>
+    
+
+  <!-- Footer -->
+ </div>
+   <footer id="footer"><p style='color:yellow'>&copy; All Rights Reserved By Print Cosmos </p></footer>
+ </div>
+
+<!-- Footer -->
+
+
+    
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+
+    
+</body>
+
+
+</html>

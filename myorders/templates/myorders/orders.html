@@ -1,0 +1,52 @@
+{% extends "users/base.html" %} 
+{% load static %}
+{% block content %}
+<head>
+<link rel="stylesheet" type="text/css" href= "{%  static  'myorders/orders.css' %}">
+</head>
+
+<table style='color:white;width:100%'>
+
+
+<th>Order Id</th>
+<th>Name</th>
+<th>Email Id</th>
+<th>Message</th>
+    <tbody>
+        {% for i in myorders %}
+        <tr>
+            
+            <td> {{i.order_id}} </td>
+            <td>    {{i.name}} </td>
+            <td>    {{i.email}} </td>
+            <td> {{i.subject}} </td>   
+            
+        </tr>
+        {% endfor %}
+        {% for i in userupload %}
+        <tr>
+            
+            <td> {{i.order_id}} </td>
+            <td>    {{i.name}} </td>
+            <td>    {{i.email}} </td>
+            <td> {{i.subject}} </td>   
+            
+        </tr>
+        {% endfor %}
+         {% for i in Banners %}
+        <tr>
+            
+            <td> {{i.order_id}} </td>
+            <td>    {{i.name}} </td>
+            <td>    {{i.email}} </td>
+            <td> {{i.subject}} </td>   
+            
+        </tr>
+        {% endfor %}
+        
+    </tbody>
+</table>
+<br />
+<h5 style='color:white'>Back To <a style="color:Yellow;font-size: 20px"; href="{% url 'Products' %}">Products</a></h5>
+
+{% endblock content %}

@@ -1,0 +1,45 @@
+{% extends "users/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% load static %}
+
+<head>
+<link rel="stylesheet" type="text/css" href= "{%  static  'users/new.css' %}">
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin my-5">
+          <div class="card-body">
+            <h5 class="card-title text-center">Sign In</h5>
+            
+            <form class="form-signin" method="POST">
+            {% csrf_token %}
+             {{ form|crispy }}
+              
+
+              <button class="btn btn-outline-info" type="submit">Sign in</button>
+              
+               <small class="text-muted ml-2">
+                <a href="{% url 'password_reset' %}">Forgot Password?</a>
+
+
+                </small>
+
+              
+            </form>
+            <div class="border-top pt-3">
+            <small class="text-muted">
+                Need An Account? <a class="ml-2" href="{% url 'register' %}">Sign Up</a>
+                
+            </small>
+        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+{% endblock content %}

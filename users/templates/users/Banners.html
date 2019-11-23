@@ -1,0 +1,272 @@
+{% extends "users/base.html" %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css" />
+    <link rel="stylesheet" type="text/css" href= "{%  static  'visitinglinks/visitingcss.css' %}">
+</head>
+<body>
+   <section class="gallery-block cards-gallery">
+	    <div class="container">
+	        <div class="heading">
+	          <h2 style='color:yellow'>Banners Gallery</h2>
+	        </div>
+	        <div class="row">
+	           
+<div class="card ml-2" style="width:20rem;height:320px;">
+  <img class="img-thumbnail" src="{% static 'users/images/Banners4.jpg' %}" />
+  <div class="card-body">
+   
+    
+     <a href="" class="btn btn-primary" data-toggle="modal" data-target="#modalContactForm" name="image" value="Image-1">Print Now</a>
+  </div>
+</div>
+	        <div class="card ml-2" style="width:20rem;height:320px;">
+  <img class="img-thumbnail" src="{% static 'users/images/Banners3.jpg' %}" />
+  <div class="card-body">
+    
+    
+     <a href="" class="btn btn-primary" data-toggle="modal" data-target="#modalContactForm1"  name="image" value="Image-2">Print Now</a>
+  </div>
+</div>
+ <div class="card ml-2" style="width:20rem;height:320px;">
+  <img class="img-thumbnail" src="{% static 'users/images/Banners6.jpg' %}" />
+  <div class="card-body">
+    
+    
+     <a href="" class="btn btn-primary" data-toggle="modal" data-target="#modalContactForm2"  name="image" value="Image-3">Print Now</a>
+  </div>
+</div>
+	            <div class="card ml-2" style="width:20rem;height:320px;">
+  <img class="img-thumbnail" src="{% static 'users/images/Banners7.jpg' %}" />
+  <div class="card-body">
+    
+    
+     <a href="" class="btn btn-primary" data-toggle="modal" data-target="#modalContactForm3"  name="image" value="Image-4">Print Now</a>
+  </div>
+</div>
+
+	        </div>
+	    </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+    <script>
+        baguetteBox.run('.cards-gallery', { animation: 'slideIn'});
+    </script>
+
+
+    <form action="{% url 'Banners' %}" method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="modal fade" id="modalContactForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+          aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold">Print Now</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body mx-3">
+                  <input type="hidden"  name="name" {% if user.is_authenticated %} value="{{user.username}}" {% endif %} >
+                  <input type="hidden"  name="email" {% if user.is_authenticated %} value="{{user.email}}" {% endif %} >
+                  <input type="hidden" name="image" value="Image-1">
+                  Size default is 89mm x 51mm,if custom then enter the size
+                  <input type="number"  style="width:50px;"  name="size1" min="10"/> X
+                  <input type="number" style="width:50px;"  name="size2" min="10"/>
+                  <br>
+                  <br>
+                  <div > Quantity
+                      <label><input type="number" class="form-control validate" name="quantity" min="100"/> </label>
+                    </div>
+                    Minimum of 100 should be made
+                    <br>
+                    <br>
+                <div class="md-form mb-5">
+                  <i class="fas fa-tag prefix grey-text"></i>
+                  <label data-error="wrong" data-success="right" for="form32">Subject</label>
+                  <input type="text" id="form32" name="subject" class="form-control validate" class="form-control validate">
+                  
+                </div>
+        
+                <div class="md-form">
+                  <i class="fas fa-pencil prefix grey-text"></i>
+                  <textarea type="text" id="form8" name="message" class="md-textarea form-control" rows="4"></textarea>
+                  <label data-error="wrong" data-success="right" for="form8">Your message</label>
+                </div>
+                
+               
+              </div>
+              <div class="modal-footer d-flex justify-content-center">
+                <button class="btn btn-unique">Send <i class="fas fa-paper-plane-o ml-1"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>       
+        </form>
+        <form action="{% url 'Banners' %}" method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="modal fade" id="modalContactForm1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+          aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold">Print Now</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body mx-3">
+                  <input type="hidden"  name="name" {% if user.is_authenticated %} value="{{user.username}}" {% endif %} >
+                  <input type="hidden"  name="email" {% if user.is_authenticated %} value="{{user.email}}" {% endif %} >
+                  <input type="hidden" name="image" value="Image-2">
+                  Size default is 89mm x 51mm,if custom then enter the size
+                  <input type="number"  style="width:50px;"  name="size1" min="10"/> X
+                  <input type="number" style="width:50px;"  name="size2" min="10"/>
+                  <br>
+                  <br>
+                  <div > Quantity
+                      <label><input type="number" class="form-control validate" name="quantity" min="100"/> </label>
+                    </div>
+                    Minimum of 100 should be made
+                    <br>
+                    <br>
+                <div class="md-form mb-5">
+                  <i class="fas fa-tag prefix grey-text"></i>
+                  <label data-error="wrong" data-success="right" for="form32">Subject</label>
+                  <input type="text" id="form32" name="subject" class="form-control validate" class="form-control validate">
+                  
+                </div>
+        
+                <div class="md-form">
+                  <i class="fas fa-pencil prefix grey-text"></i>
+                  <textarea type="text" id="form8" name="message" class="md-textarea form-control" rows="4"></textarea>
+                  <label data-error="wrong" data-success="right" for="form8">Your message</label>
+                </div>
+                
+                
+              </div>
+              <div class="modal-footer d-flex justify-content-center">
+                <button class="btn btn-unique">Send <i class="fas fa-paper-plane-o ml-1"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>       
+        </form>
+
+        <form action="{% url 'Banners' %}" method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="modal fade" id="modalContactForm2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+          aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold">Print Now</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body mx-3">
+                  <input type="hidden"  name="name" {% if user.is_authenticated %} value="{{user.username}}" {% endif %} >
+                  <input type="hidden"  name="email" {% if user.is_authenticated %} value="{{user.email}}" {% endif %} >
+                  <input type="hidden" name="image" value="Image-3">
+                  Size default is 89mm x 51mm,if custom then enter the size
+                  <input type="number"  style="width:50px;"  name="size1" min="10"/> X
+                  <input type="number" style="width:50px;"  name="size2" min="10"/>
+                  <br>
+                  <br>
+                  <div > Quantity
+                      <label><input type="number" class="form-control validate" name="quantity" min="100"/> </label>
+                    </div>
+                    Minimum of 100 should be made
+                    <br>
+                    <br>
+                <div class="md-form mb-5">
+                  <i class="fas fa-tag prefix grey-text"></i>
+                  <label data-error="wrong" data-success="right" for="form32">Subject</label>
+                  <input type="text" id="form32" name="subject" class="form-control validate" class="form-control validate">
+                  
+                </div>
+        
+                <div class="md-form">
+                  <i class="fas fa-pencil prefix grey-text"></i>
+                  <textarea type="text" id="form8" name="message" class="md-textarea form-control" rows="4"></textarea>
+                  <label data-error="wrong" data-success="right" for="form8">Your message</label>
+                </div>
+                
+                
+              </div>
+              <div class="modal-footer d-flex justify-content-center">
+                <button class="btn btn-unique">Send <i class="fas fa-paper-plane-o ml-1"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>       
+        </form>
+        <form action="{% url 'Banners' %}" method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="modal fade" id="modalContactForm3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+          aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold">Print Now</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body mx-3">
+                  <input type="hidden"  name="name" {% if user.is_authenticated %} value="{{user.username}}" {% endif %} >
+                  <input type="hidden"  name="email" {% if user.is_authenticated %} value="{{user.email}}" {% endif %} >
+                  <input type="hidden" name="image" value="Image-4">
+                  Size default is 89mm x 51mm,if custom then enter the size
+                  <input type="number"  style="width:50px;"  name="size1" min="10"/> X
+                  <input type="number" style="width:50px;"  name="size2" min="10"/>
+                  <br>
+                  <br>
+                  <div > Quantity
+                      <label><input type="number" class="form-control validate" name="quantity" min="100"/> </label>
+                    </div>
+                    Minimum of 100 should be made
+                    <br>
+                    <br>
+                <div class="md-form mb-5">
+                  <i class="fas fa-tag prefix grey-text"></i>
+                  <label data-error="wrong" data-success="right" for="form32">Subject</label>
+                  <input type="text" id="form32" name="subject" class="form-control validate" class="form-control validate">
+                  
+                </div>
+        
+                <div class="md-form">
+                  <i class="fas fa-pencil prefix grey-text"></i>
+                  <textarea type="text" id="form8" name="message" class="md-textarea form-control" rows="4"></textarea>
+                  <label data-error="wrong" data-success="right" for="form8">Your message</label>
+                </div>
+                
+
+              </div>
+              <div class="modal-footer d-flex justify-content-center">
+                <button class="btn btn-unique">Send <i class="fas fa-paper-plane-o ml-1"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>       
+        </form>
+
+
+
+
+</body>
+</html>
+  
+        
+        
+ 
+{% endblock content %}

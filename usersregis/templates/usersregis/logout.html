@@ -1,0 +1,18 @@
+
+
+{% extends "users/base.html" %}
+
+{% block content %}
+    <br /><h5 style='color:white'>You have been logged out </h5>
+    
+        
+    <div class="border-top pt-1">
+        <small class="text-muted" >
+           <a href="{% url 'login' %}"><h6 style='color:yellow'>Log In Again</h6></a>
+        </small>
+    </div>
+
+{% endblock content %}
+
+
+

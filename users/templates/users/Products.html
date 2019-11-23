@@ -1,0 +1,47 @@
+
+{% extends "users/base.html" %}
+{% block content %}
+{% load static %}
+<body>
+<head>
+    {% if user.is_authenticated %}
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.css">
+        <link rel="stylesheet" type="text/css" href= "{%  static  'users/new.css' %}">
+    {% endif  %}
+</head>
+
+{% if user.is_authenticated %}
+<h3 style='color:white'> Select the Product of your choice</h3>
+<div class="col-sm-5 col-lg-5 col-12 col-md-5">
+                <div class="thumbnail">
+                   
+                        
+                        <a href="{% url 'collection' %}"><img class="img-rounded" src="{% static 'users/images/collection.jpg' %}" /></a>
+                 <div class="caption">
+                        <h4>Visiting Cards</h4>
+                        
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-sm-5 col-lg-5 col-12 col-md-5">
+                <div class="thumbnail">
+                   
+                        
+                        <a href="{% url 'Banners' %}"><img class="img-rounded" src="{% static 'users/images/banners4.jpg' %}" /></a>
+                 <div class="caption">
+                        <h4>Banners</h4>
+                        
+                    </div>
+
+                </div>
+            </div>
+
+      
+{% endif  %}
+
+</body>
+</html>
+{% endblock content %}
